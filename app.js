@@ -68,7 +68,7 @@ app.use('/', routes);
 passport.use(new TwitterStrategy({
     consumerKey: 'GtaaoeqYxDrENiOgwJOsahQMB',
     consumerSecret: 'TnbrlsxnMfF67Hz39sem2TCLB9a013xJRQT16pCooWc08VQnou',
-    callbackURL: "http://127.0.0.1:3000/auth/twitter/return"
+    callbackURL: "https://arcane-brushlands-10073.herokuapp.com/auth/twitter/return"
   },
   function(token, tokenSecret, profile, cb) {
     User.findOneAndUpdate({ displayName: profile.displayName },
