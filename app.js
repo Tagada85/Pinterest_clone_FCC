@@ -17,7 +17,7 @@ var app = express();
 
 const db = mongoose.connection;
 
-mongoose.connect('mongodb://localhost:27017/pinterest');
+mongoose.connect('mongodb://Tagada85:kallon85@ds021026.mlab.com:21026/pinterest_clone');
 mongoose.Promise = global.Promise;
 
 //initialize passport
