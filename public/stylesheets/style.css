@@ -20,7 +20,7 @@ input{
 	height: 150px;
 }
 
-.grid-item:after{
+.grid:after{
 	content: '';
 	display: table;
 	clear: both;
