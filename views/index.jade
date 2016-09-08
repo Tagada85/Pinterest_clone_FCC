@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  p Welcome to #{title}
+  if oneUser
+    h3=oneUser.username + ' pictures'
+    div.grid
+    for img in oneUser.images
+            div.grid-item
+                img(src=img.url onError="this.onerror=null;this.src='http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';")
+                p=img.name
+  if users
+      h3 All Pictures
+      div.grid
+          for user in users
+            for image in user.images
+                div.grid-item
+                    img(src=image.url onError="this.onerror=null;this.src='http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';")
+                    p=image.name
+                    a(href='/' + user.username)=user.username
+
+  script(src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js")
+  script(src='javascripts/masonry.js')

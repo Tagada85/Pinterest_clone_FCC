@@ -1,0 +1,25 @@
+extends layout
+
+block content
+    h1.text-center Here are your pictures
+    div.grid
+        for images in userImages.images
+            div.grid-item
+                img(src=images.url onError="this.onerror=null;this.src='http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png';")
+                p=images.name
+                input(type='submit' value='Delete Image' id=images._id onClick='deleteImage(this)').btn.btn-danger
+    script(src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js")
+    script(src='javascripts/masonry.js')
+    script.
+        function deleteImage(link){
+           let id = $(link).attr('id');
+           $.ajax({
+            url: '/my_pics/' + id,
+            type: 'DELETE',
+            success: function(){
+            alert('Image Deleted!');
+            window.location.replace('/my_pics');
+            }
+           });
+        }
+

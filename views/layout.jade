@@ -1,0 +1,26 @@
+doctype html
+html
+  head
+    title= title
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous")
+    script(src="https://unpkg.com/masonry-layout@4.1/dist/masonry.pkgd.min.js")
+  body.container
+    header.navbar
+        ul.nav.nav-tabs
+            li
+                a(href='/') Home
+            if user
+                li
+                    a(href='/new_post') Add Picture
+                li
+                    a(href='/my_pics') My Pictures
+                li
+                    a(href='/logout').btn.btn-danger Logout
+            else
+                li
+                    a(href='/auth/twitter') Login Twitter
+    if user
+        h1.text-center='Welcome ' + user.displayName
+    block content
