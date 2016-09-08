@@ -16,8 +16,11 @@ input{
 
 .grid-item{
 	width: 200px;
-	height: 150px;
+	height: auto;
+	border: 2px solid white;
+	margin-bottom: 10px;
 }
+
 
 .grid-item:after{
 	content: '';
